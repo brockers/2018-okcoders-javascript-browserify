@@ -9,7 +9,7 @@ function message(){
 }
 
 $(document).ready(function(){
-	$("p").html("<div>Another Message</div>");
+	$("#nameList").append("Our list is going to go here!");
 });
 
 window.message = message;
