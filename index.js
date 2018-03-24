@@ -3,13 +3,22 @@ var _ = require("lodash");
 
 var list = [ "john", "paul", "george", "ringo" ];
 
-function message(){
-	console.log("This is a message");
-	alert("This is a message");
+function addlist(){
+	var newItem = $("#newItem").val();
+	list.push(newItem);
+	printList();
+	$("#newItem").val("");
 }
 
-$(document).ready(function(){
-	$("#nameList").append("Our list is going to go here!");
-});
+function printList(){
+	var ourlist = $("#nameList");
+	ourlist.html("");
+	_(list).forEach(function(el){
+		ourlist.append("<li>" + el + "</li>");
+	});
+}
 
-window.message = message;
+$(document).ready(printList);
+
+window.addlist = addlist;
+window.printList = printList;
